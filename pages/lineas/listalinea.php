@@ -38,8 +38,9 @@
             <h4 class="modal-tittle">Actualizar Línea&nbsp;</h4>
         </div>
         <div class="modal-body" id="actualizado">
+           
             <form role="form" action="actualizarlinea.php" method="POST">
-                <input type="text" value="<?php echo $reg['id_linea'] ?>" name="id" id="id" hidden>
+             <input type="text" value="<?php echo $reg['id_linea'] ?>" id="id" name="id" hidden>
                  <div class="form-group">
                     <label>Nombre:&nbsp;</label>
                     <input class="form-control" name="nombre" id="nombre" required value="<?php echo $reg['nombre_linea'] ?>">
@@ -48,11 +49,10 @@
                 <div class="form-group">
                     <label>Descripción:&nbsp;</label>
                     <input class="form-control" name="desc" id="descripcion" required value="<?php echo $reg['desc_linea'] ?>">
-                   
                 </div>
-                 <button class="btn btn-primary" type="submit" onclick="actualizarlinea($('#id').val(), $('#nombre').val(), $('#descripcion').val()); return false;">Guardar</button>
+            <button class="btn btn-primary" type="submit" onclick="actualizarlinea($('#id').val(),$('#nombre').val(),$('#descripcion').val()); return false;">Guardar</button>
         </form>    
-           
+
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>

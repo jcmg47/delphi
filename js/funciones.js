@@ -273,26 +273,123 @@ function borrarsub(id){
         });
 }
 
-function actualizarlinea(id,nombre,descripcion){
-      var parametros={
-              "id": id,
-              "nombre": nombre,
-              "descripcion": descripcion
-              };
-          $.ajax({
-              data: parametros,
-              //url: 'http://theherbangroup.esy.es/webmovil/guardarusuario.php',
-              url: 'actualizarlinea.php',
-              type: 'post',
-              beforeSend:function(){
-                  $("#actualizado").html("<img src='../../img/loader.gif' width='100'>");
-              },
-              success: function(response){
-                  $("#actualizado").html(response);
+function actualizarempleado(id,tipo,turno,nombre,paterno,materno,num,correo){
+        var parametros = {
+          "id" : id,
+          "tipo" : tipo,
+          "turno" : turno,
+          "nombre" : nombre,
+          "paterno" : paterno,
+          "materno" : materno,
+          "num" : num,
+          "correo" : correo
+        };
+        $.ajax({
+          data : parametros,
+          url : 'actualizarempleado.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado").html(response);
+          },
+          error: function (response){
+              $("#actualizado").html("No se cargaron los datos");
+          }
+        });
+}
 
-              },
-              error: function(){
-                $("#actualizado").html("Error de comunicacion");
-              }
-          });
-    }
+function actualizarestacion(id,nombre,linea){
+        var parametros = {
+          "id" : id,
+          "nombre" : nombre,
+          "linea" :linea
+        };
+        $.ajax({
+          data : parametros,
+          url : 'actualizarestacion.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado").html(response);
+          },
+          error: function (response){
+              $("#actualizado").html("No se cargaron los datos");
+          }
+        });
+}
+
+function actualizarincidencia(id,disp, fecha,personal){
+        var parametros = {
+          "id" : id,
+          "disp" : disp,
+          "fecha": fecha,
+          "personal" : personal
+        };
+        $.ajax({
+          data : parametros,
+          url : 'actualizarincidencia.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado").html(response);
+          },
+          error: function (response){
+              $("#actualizado").html("No se cargaron los datos");
+          }
+        });
+}
+
+function actualizarlinea(id,nombre,descripcion){
+        var parametros = {
+          "id" : id,
+          "nombre" : nombre,
+          "descripcion" : descripcion
+        };
+        $.ajax({
+          data : parametros,
+          url : 'actualizarlinea.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado").html(response);
+          },
+          error: function (response){
+              $("#actualizado").html("No se cargaron los datos");
+          }
+        });
+}
+
+function actualizarsub(id,nombre, estacion){
+        var parametros = {
+          "id" : id,
+          "nombre" : nombre,
+          "estacion" : estacion
+        };
+        $.ajax({
+          data : parametros,
+          url : 'actualizarsub.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado").html(response);
+          },
+          error: function (response){
+              $("#actualizado").html("No se cargaron los datos");
+          }
+        });
+}

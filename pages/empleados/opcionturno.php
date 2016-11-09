@@ -6,7 +6,7 @@ require_once("../bd/conect.php");
  				echo '
  				<div class="form-group">
                                             <label>Turno&nbsp;</label>
-                                            <select class="form-control" name="turno">';
+                                            <select class="form-control" id="turno" name="turno">';
                                             while($reg = mysqli_fetch_assoc($resultado)){ ?>
                                                 <option value="<?php echo $reg['id_turno'];?>">
 					                            <?php 

@@ -8,5 +8,5 @@ $sql = "INSERT INTO linea VALUES (null,'$_POST[nombre]','$_POST[desc]')";
 	} else{
 		header("location:index.html?lineas=false");
 	}
-mysqli_close($con);
+
 ?>

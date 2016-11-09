@@ -395,11 +395,13 @@
                             
                         </div>
                         <div class="panel-body">
-                        <span id="listar"></span>
+                        <div id="listar"></div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
+                   
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -409,35 +411,39 @@
     
         <!-- /#page-wrapper -->
 
-    
+    </div>
     <!-- /#wrapper -->
 
     <!--Modal de la linea -->
     <div id="nuevo" class="modal fade" role="dialog">
         <div class="modal-dialog">            
         <!-- Modal Content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss ="modal">&times;</button>
-                    <h4 class="modal-tittle">Registrar Línea&nbsp;</h4>
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss ="modal">&times;</button>
+            <h4 class="modal-tittle">Registrar Línea&nbsp;</h4>
+        </div>
+        <div class="modal-body">
+            <form role="form" action="guardar.php" method="POST">
+                 <div class="form-group">
+                    <label>Nombre:&nbsp;</label>
+                    <input class="form-control" name="nombre" required>
+                   
                 </div>
-                <div class="modal-body">
-                    <form role="form" action="guardar.php" method="POST">
-                        <div class="form-group">
-                            <label>Nombre:&nbsp;</label>
-                            <input class="form-control" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Descripción:&nbsp;</label>
-                            <input class="form-control" name="desc" required>
-                        </div>
+                <div class="form-group">
+                    <label>Descripción:&nbsp;</label>
+                    <input class="form-control" name="desc" required>
+                   
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    </form>    
-                </div>
-            </div>
+           
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        </form>    
+        </div>
+
+        </div>
         </div>
     </div>
 

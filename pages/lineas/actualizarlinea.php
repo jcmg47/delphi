@@ -9,5 +9,5 @@ require_once("../bd/conect.php");
       }else{
           echo "Fallo:";
           }
-mysqli_close($con);
+          mysqli_close($con);
 ?>

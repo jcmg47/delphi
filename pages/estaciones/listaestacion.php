@@ -38,11 +38,11 @@
         </div>
         <div class="modal-body">
             <form role="form" action="actualizarestacion.php" method="POST">
-                <input type="text" value="<?php echo $reg['id_estacion'] ?>" name="id" hidden>
+                <input type="text" value="<?php echo $reg['id_estacion'] ?>" id="id" name="id" hidden>
 
                  <div class="form-group">
                     <label>Nombre de Estación:&nbsp;</label>
-                    <input class="form-control" name="nombre"  value="<?php echo $reg['nombre_es'] ?>">
+                    <input class="form-control" name="nombre" id="nombre"> value="<?php echo $reg['nombre_es'] ?>">
                    
                 </div>
                 <div class="form-group">
@@ -50,12 +50,12 @@
                     <div id="lineas"></div>
                    
                 </div>
-           
+           <button class="btn btn-primary" type="submit" onclick="actualizarestacion($('#id').val(),$('#nombre').val(),$('#linea').val()); return false;">Guardar</button>
+        </form> 
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        </form>    
+           
         </div>
 
         </div>
