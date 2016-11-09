@@ -273,7 +273,7 @@ function borrarsub(id){
         });
 }
 
-function actualizarempleado(id,tipo,turno,nombre,paterno,materno,num,correo){
+function actualizarempleado(id,nombre,paterno,materno,num,correo,turno,tipo){
         var parametros = {
           "id" : id,
           "tipo" : tipo,
