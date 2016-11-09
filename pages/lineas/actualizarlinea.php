@@ -1,7 +1,7 @@
 <?php
 require_once("../bd/conect.php");
 	
-    $sql="UPDATE linea SET nombre_linea ='$_POST[nombre]', desc_linea = '$_POST[desc]' WHERE id_linea ='$_POST[id]'";
+    $sql="UPDATE linea SET nombre_linea ='$_POST[nombre]', desc_linea = '$_POST[descripcion]' WHERE id_linea ='$_POST[id]'";
     
     if(mysqli_query($con,$sql)){
     	echo "Registro Actualizado!";
@@ -9,5 +9,5 @@ require_once("../bd/conect.php");
       }else{
           echo "Fallo:";
           }
-          mysqli_close($con);
+mysqli_close($con);
 ?>

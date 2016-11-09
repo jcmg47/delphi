@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DELPHI Cableados S.A de C.V</title>
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,13 +20,11 @@
 
     <!-- Custom Fonts -->
     <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     <!-- DataTables CSS -->
     <link href="../../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
     <link href="../../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../index.html">DELPHI</a>
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -377,7 +373,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Información Sobre Líneas&nbsp;</h1>
+                    <h1 class="page-header">Forms</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -386,16 +382,15 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Listado de  Línea&nbsp;
+                            Basic Form Elements
                             <div class=" pull-right">
                                 <button type="button" class="btn btn-success btn-xs btn-circle" data-toggle='modal' data-target='#nuevo'><i class="fa fa-files-o"></i></button>
-                                
                                 <button type="button" class="btn btn-primary btn-xs btn-circle" onclick="listalinea()"><i class="fa fa-refresh fa-fw"></i></button>
                             </div>
-                            
                         </div>
                         <div class="panel-body">
-                        <span id="listar"></span>
+                            <div id="listar"></div>
+                           
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -405,41 +400,10 @@
             </div>
             <!-- /.row -->
         </div>
-
-    
         <!-- /#page-wrapper -->
 
-    
-    <!-- /#wrapper -->
-
-    <!--Modal de la linea -->
-    <div id="nuevo" class="modal fade" role="dialog">
-        <div class="modal-dialog">            
-        <!-- Modal Content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss ="modal">&times;</button>
-                    <h4 class="modal-tittle">Registrar Línea&nbsp;</h4>
-                </div>
-                <div class="modal-body">
-                    <form role="form" action="guardar.php" method="POST">
-                        <div class="form-group">
-                            <label>Nombre:&nbsp;</label>
-                            <input class="form-control" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Descripción:&nbsp;</label>
-                            <input class="form-control" name="desc" required>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    </form>    
-                </div>
-            </div>
-        </div>
     </div>
+    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../../vendor/jquery/jquery.min.js"></script>
@@ -452,7 +416,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../../dist/js/sb-admin-2.js"></script>
-    <!-- DataTables JavaScript -->
     <script src="../../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../../vendor/datatables-responsive/dataTables.responsive.js"></script>

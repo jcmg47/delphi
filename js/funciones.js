@@ -273,3 +273,26 @@ function borrarsub(id){
         });
 }
 
+function actualizarlinea(id,nombre,descripcion){
+      var parametros={
+              "id": id,
+              "nombre": nombre,
+              "descripcion": descripcion
+              };
+          $.ajax({
+              data: parametros,
+              //url: 'http://theherbangroup.esy.es/webmovil/guardarusuario.php',
+              url: 'actualizarlinea.php',
+              type: 'post',
+              beforeSend:function(){
+                  $("#actualizado").html("<img src='../../img/loader.gif' width='100'>");
+              },
+              success: function(response){
+                  $("#actualizado").html(response);
+
+              },
+              error: function(){
+                $("#actualizado").html("Error de comunicacion");
+              }
+          });
+    }

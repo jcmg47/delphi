@@ -37,25 +37,26 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Línea&nbsp;</h4>
         </div>
-        <div class="modal-body">
-            <input type="text" value="<?php echo $reg['id_linea'] ?>" name="id" hidden>
+        <div class="modal-body" id="actualizado">
             <form role="form" action="actualizarlinea.php" method="POST">
+                <input type="text" value="<?php echo $reg['id_linea'] ?>" name="id" id="id" hidden>
                  <div class="form-group">
                     <label>Nombre:&nbsp;</label>
-                    <input class="form-control" name="nombre" required value="<?php echo $reg['nombre_linea'] ?>">
+                    <input class="form-control" name="nombre" id="nombre" required value="<?php echo $reg['nombre_linea'] ?>">
                    
                 </div>
                 <div class="form-group">
                     <label>Descripción:&nbsp;</label>
-                    <input class="form-control" name="desc" required value="<?php echo $reg['desc_linea'] ?>">
+                    <input class="form-control" name="desc" id="descripcion" required value="<?php echo $reg['desc_linea'] ?>">
                    
                 </div>
+                 <button class="btn btn-primary" type="submit" onclick="actualizarlinea($('#id').val(), $('#nombre').val(), $('#descripcion').val()); return false;">Guardar</button>
+        </form>    
            
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        </form>    
+       
         </div>
 
         </div>
