@@ -117,36 +117,36 @@ function opcionestacion(){
         });
  }
 
- function opcionturno(){
+ function opcionturno(tag){
         $.ajax({
           url : 'opcionturno.php',
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#turnos").html("<img src = '../../img/loader.gif'>");
+             $("#"+tag).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#turnos").html(response);
+            $("#"+tag).html(response);
           },
           error: function (response){            
-              $("#turnos").html("Intentelo nuevamente");
+              $("#"+tag).html("Intentelo nuevamente");
           }
         });
  }
 
- function opciontipo(){
+ function opciontipo(tag){
         $.ajax({
           url : 'opciontipo.php',
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#tipos").html("<img src = '../../img/loader.gif'>");
+             $("#"+tag).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#tipos").html(response);
+            $("#"+tag).html(response);
           },
           error: function (response){            
-              $("#tipos").html("Intentelo nuevamente");
+              $("#"+tag).html("Intentelo nuevamente");
           }
         });
  }

@@ -45,45 +45,49 @@
             <h4 class="modal-tittle">Actualizar Empleado&nbsp;</h4>
         </div>
         <div class="modal-body" id="actualizado">
-            <form role="form" action="actualizarempleado.php" method="POST">
-                  <input type="text" value="<?php echo $reg['id_personal'] ?>" id="id" name="id" hidden>
+            <form role="form">
+                  <input type="text" value="<?php echo $reg['id_personal'] ?>" id="id" name="id<?php echo $reg['id_personal'];?>" hidden>
 
                  <div class="form-group">
                     <label>Nombre(s):&nbsp;</label>
-                    <input class="form-control" id="nombre" name="nombre" value="<?php echo $reg['nombre_personal'] ?>">
+                    <input class="form-control" id="nombre<?php echo $reg['id_personal'];?>" name="nombre" value="<?php echo $reg['nombre_personal'] ?>">
                 </div>
 
                  <div class="form-group">
                     <label>Apellido Paterno:&nbsp;</label>
-                    <input class="form-control" name="paterno"  id="paterno" value="<?php echo $reg['apaterno_personal'] ?>">
+                    <input class="form-control" name="paterno"  id="paterno<?php echo $reg['id_personal'];?>" value="<?php echo $reg['apaterno_personal'] ?>">
                 </div>
 
                  <div class="form-group">
                     <label>Apellido Materno:&nbsp;</label>
-                    <input class="form-control" name="materno" id="materno" value="<?php echo $reg['amaterno_personal'] ?>">
+                    <input class="form-control" name="materno" id="materno<?php echo $reg['id_personal'];?>" value="<?php echo $reg['amaterno_personal'] ?>">
                 </div>
 
                  <div class="form-group">
                     <label>Número de Empleado:&nbsp;</label>
-                    <input class="form-control" name="num" id="num" value="<?php echo $reg['num_personal'] ?>">
+                    <input class="form-control" name="num" id="num<?php echo $reg['id_personal'];?>" value="<?php echo $reg['num_personal'] ?>">
                 </div>
 
                  <div class="form-group">
                     <label>Correo:&nbsp;</label>
-                    <input class="form-control" name="correo" id="correo" value="<?php echo $reg['correo_personal'] ?>">
+                    <input class="form-control" name="correo" id="correo<?php echo $reg['id_personal'];?>" value="<?php echo $reg['correo_personal'] ?>">
                 </div>
                     
                  <?php //include('opcionturno.php'); ?>
                
                 <div class="form-group">
-                  <div id="tipos"></div>
+                  <div id="tipos<?php echo $reg['id_personal']; ?>"></div>
                 </div>
                 
                 <div class="form-group">
-                  <div id="turnos"></div>
+                  <div id="turnos<?php echo $reg['id_personal']; ?>"></div>
                 </div>
-           
-           <button class="btn btn-primary" type="submit" onclick="actualizarempleado($('#id').val(),$('#nombre').val(), $('#paterno').val(), $('#materno').val(), $('#num').val(), $('#correo').val(), $('#turno').val(), $('#tipo').val()); return false;">Guardar</button>
+                <script>
+                    opcionturno('turnos<?php echo $reg['id_personal']; ?>');
+                    opciontipo('tipos<?php echo $reg['id_personal']; ?>');
+
+                </script>
+           <button class="btn btn-primary" type="submit" onclick="actualizarempleado($('#id<?php echo $reg[id_personal];?>').val(),$('#nombre<?php echo $reg[id_personal];?>').val(), $('#paterno<?php echo $reg[id_personal];?>').val(), $('#materno<?php echo $reg[id_personal];?>').val(), $('#num<?php echo $reg[id_personal];?>').val(), $('#correo<?php echo $reg[id_personal];?>').val(), $('#turno<?php echo $reg[id_personal];?>').val(), $('#tipo<?php echo $reg[id_personal];?>').val()); return false;">Guardar</button>
         </form> 
 
         </div>
@@ -112,7 +116,4 @@
     });
     </script>
 
-    <script>
-        $(document).ready(opcionturno(),opciontipo());
-    </script>
 
