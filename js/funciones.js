@@ -15,6 +15,23 @@ function listalinea(){
           }
         });
     }
+function listaasignacion(){
+        $.ajax({
+          url : 'listaasignacion.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#listar").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#listar").html(response);
+          },
+          error: function (response){
+            
+              $("#listar").html("No se cargaron los datos");
+          }
+        });
+    }
 
 function listaestacion(){    
         $.ajax({
