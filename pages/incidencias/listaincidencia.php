@@ -2,10 +2,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Disponibilidad </th>
+                                        <th>Disponibilidad</th>
                                         <th>Fecha</th>
                                         <th>Empleado</th>
-                                        <th>Operador de Apoyo</th>
                                         <th>Acciones</th>
                                         
                                     </tr>
@@ -67,14 +66,17 @@
                                         </div>
 
                 <div class="form-group">
-                  <div id="tipos"></div>
+                  <div id="personal"></div>
                 </div>
            
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
         <button class="btn btn-primary" type="submit">Guardar</button>
         </form>    
+        </div>
+        <div class="modal-footer">
+          <script>
+                    opcionpersonal('uppersonal<?php echo $reg['id_incidencia']; ?>', <?php echo $reg['id_incidencia']; ?>);
+                </script>
+        <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
         </div>
 
         </div>
