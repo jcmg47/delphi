@@ -41,7 +41,7 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Incidencia&nbsp;</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="actualizado<?php echo $reg['id_incidencia'];?>">
             <form role="form" action="actualizarincidencia.php" method="POST">
                 <input type="text" value="<?php echo $reg['id_incidencia'] ?>" name="id" hidden>
                  <div class="form-group">

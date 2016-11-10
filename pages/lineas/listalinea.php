@@ -37,7 +37,7 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Línea&nbsp;</h4>
         </div>
-        <div class="modal-body" id="actualizado">
+        <div class="modal-body" id="actualizado<?php echo $reg['id_linea'];?>">
            
             <form role="form" action="actualizarlinea.php" method="POST">
              <input type="text" value="<?php echo $reg['id_linea'] ?>" id="id<?php echo $reg['id_linea'] ?>" name="id" hidden>
