@@ -122,7 +122,11 @@ function opcionlinea(tag,id){
  }
 
 function opcionestacion(tag,id){
+  var parametros = {
+          "id" : id
+        };
         $.ajax({
+          data : parametros,
           url : 'opcionestacion.php',
           type: 'post', 
           cache: false,
@@ -342,13 +346,13 @@ function actualizarestacion(id,nombre,linea){
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+             $("#actualizad"+id).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#actualizado").html(response);
+            $("#actualizado"+id).html(response);
           },
           error: function (response){
-              $("#actualizado").html("No se cargaron los datos");
+              $("#actualizado"+id).html("No se cargaron los datos");
           }
         });
 }
@@ -366,13 +370,13 @@ function actualizarincidencia(id,disp, fecha,personal){
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+             $("#actualizado"+id).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#actualizado").html(response);
+            $("#actualizado"+id).html(response);
           },
           error: function (response){
-              $("#actualizado").html("No se cargaron los datos");
+              $("#actualizado"+id).html("No se cargaron los datos");
           }
         });
 }
@@ -389,13 +393,13 @@ function actualizarlinea(id,nombre,descripcion){
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+             $("#actualizado"+id).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#actualizado").html(response);
+            $("#actualizado"+id).html(response);
           },
           error: function (response){
-              $("#actualizado").html("No se cargaron los datos");
+              $("#actualizado"+id).html("No se cargaron los datos");
           }
         });
 }
@@ -412,13 +416,13 @@ function actualizarsub(id,nombre, estacion){
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+             $("#actualizado"+id).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#actualizado").html(response);
+            $("#actualizado"+id).html(response);
           },
           error: function (response){
-              $("#actualizado").html("No se cargaron los datos");
+              $("#actualizado"+id).html("No se cargaron los datos");
           }
         });
 }
