@@ -43,7 +43,11 @@
                     <option value=''></option>
                     <?php
                     while($reg1 = mysqli_fetch_assoc($result)){
-                      echo "<option value='$reg1[id_estacion]'>".$reg1['nombre_es']."</option>";
+                      echo "<option";
+                      if($asig['id_estacion']==$reg1['id_estacion']){
+                          echo " selected ";
+                      }
+                        echo " value='$reg1[id_estacion]'>".$reg1['nombre_es']."</option>";
                     }
                     echo "</select>";
                   }
