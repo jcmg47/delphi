@@ -387,6 +387,9 @@
 
      <script>
         $(document).ready(listalinea());
+        $("#nuevo").on('hidden.bs.modal', function () {
+            location.reload();
+    });
     </script>
 
 </body>
