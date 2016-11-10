@@ -1,4 +1,4 @@
-<table width="100%" class="table table-striped table-bordered table-hover" id="tableempleado">
+<table width="100%" class="table table-striped table-bordered table-hover" id="tableasignacion">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -8,7 +8,6 @@
                                         <th>Estacion 1</th>
                                         <th>Estacion 2</th>
                                         <th>Estacion 3</th>
-                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,9 +69,9 @@
           </tbody>
                         </table>
 
- <script>
+  <script>
     $(document).ready(function() {
-        $('#tableempleado').DataTable({
+        $('#tableasignacion').DataTable({
             responsive: true
         });
     });

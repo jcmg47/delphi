@@ -294,7 +294,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 cla+ss="page-header">Información Sobre Empleados&nbsp;</h1>
+                    <h1 cla+ss="page-header">Asignacion de Empleados a Estacion&nbsp;</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -303,11 +303,10 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Listado de  Empleados&nbsp;
+                            Listado de Asignaciones&nbsp;
                             <div class=" pull-right">
-                                <button type="button" class="btn btn-success btn-xs btn-circle" data-toggle='modal' data-target='#nuevo'><i class="fa fa-files-o"></i></button>
                                 
-                                <button type="button" class="btn btn-primary btn-xs btn-circle" onclick="listaempleado()"><i class="fa fa-refresh fa-fw"></i></button>
+                                <button type="button" class="btn btn-primary btn-xs btn-circle" onclick="listaasignacion()"><i class="fa fa-refresh fa-fw"></i></button>
                             </div>
                             
                         </div>
@@ -331,60 +330,7 @@
     </div>
     <!-- /#wrapper -->
 
-    <!--Modal de la linea -->
-    <div id="nuevo" class="modal fade" role="dialog">
-        <div class="modal-dialog">            
-        <!-- Modal Content -->
-        <div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss ="modal">&times;</button>
-            <h4 class="modal-tittle">Registrar Empleado&nbsp;</h4>
-        </div>
-        <div class="modal-body">
-            <form role="form" action="guardaremp.php" method="POST">
-                 <div class="form-group">
-                    <label>Nombre(s):&nbsp;</label>
-                    <input class="form-control" name="nombre">
-                </div>
-
-                 <div class="form-group">
-                    <label>Apellido Paterno:&nbsp;</label>
-                    <input class="form-control" name="paterno">
-                </div>
-
-                 <div class="form-group">
-                    <label>Apellido Materno:&nbsp;</label>
-                    <input class="form-control" name="materno">
-                </div>
-
-                 <div class="form-group">
-                    <label>Número de Empleado:&nbsp;</label>
-                    <input class="form-control" name="num">
-                </div>
-
-                 <div class="form-group">
-                    <label>Correo:&nbsp;</label>
-                    <input class="form-control" name="correo">
-                </div>
-
-                 <div class="form-group">
-                    <div id="turnos"></div>
-                </div>
-
-                <div class="form-group">
-                  <div id="tipos"></div>
-                </div>
-           
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        </form>    
-        </div>
-
-        </div>
-        </div>
-    </div>
+    
 
     <!-- jQuery -->
     <script src="../../vendor/jquery/jquery.min.js"></script>
@@ -404,8 +350,9 @@
     <script src="../../js/funciones.js"></script>
 
     <script>
-        $(document).ready(listaempleado(),opcionturno('turnos'),opciontipo('tipos'));
+        $(document).ready(listaasignacion);
     </script>
+    
     
 
 </body>
