@@ -38,24 +38,24 @@
         </div>
         <div class="modal-body" id="actualizado">
             <form role="form" action="actualizarestacion.php" method="POST">
-                <input type="text" value="<?php echo $reg['id_estacion'] ?>" id="id" name="id<?php echo $reg['id_estacion'];?>" hidden>
+                <input type="text" value="<?php echo $reg['id_estacion'] ?>" id="id<?php echo $reg['id_estacion'];?>" name="id<?php echo $reg['id_estacion'];?>" hidden>
 
                  <div class="form-group">
                     <label>Nombre de Estación:&nbsp;</label>
-                    <input class="form-control" name="nombre<?php echo $reg['nombre_es'];?>" id="nombre" value="<?php echo $reg['nombre_es'] ?>">
+                    <input class="form-control" name="nombre<?php echo $reg['nombre_es'];?>" id="nombre<?php echo $reg['id_estacion'];?>" value="<?php echo $reg['nombre_es'] ?>">
                    
                 </div>
                 <div class="form-group">
-                    
-                    <div id="lineas<?php echo $reg['id_estacion']; ?>"></div>
+                    <div id="uplinea<?php echo $reg['id_estacion']; ?>"></div>
                 </div>
-           <button class="btn btn-primary" type="submit" onclick="actualizarestacion($('#id').val(),$('#nombre').val(),$('#linea').val()); return false;">Guardar</button>
+
+           <button class="btn btn-primary" onclick="actualizarestacion($('#id<?php echo $reg['id_estacion'];?>').val(),$('#nombre<?php echo $reg['id_estacion'];?>').val(),$('#linea<?php echo $reg['id_estacion'];?>').val()); return false;">Guardar</button>
+
         </form> 
         </div>
         <div class="modal-footer">
            <script>
-                    opcionlinea('lineas<?php echo $reg['id_estacion']; ?>');
-
+                    opcionlinea('uplinea<?php echo $reg['id_estacion']; ?>', <?php echo $reg['id_estacion']; ?>);
                 </script>
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
            
