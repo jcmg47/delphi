@@ -344,7 +344,7 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Registrar Estación&nbsp;</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="guardae">
             <form role="form" action="guardares.php" method="POST">
                  <div class="form-group">
                     <label>Nombre de Estación:&nbsp;</label>
@@ -360,7 +360,8 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-primary" onclick="guardarestacion($('#nombre').val(),$('#linea').val()); return false;">Guardar</button>
+
         </form>    
         </div>
 

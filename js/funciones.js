@@ -476,6 +476,28 @@ function guardarempleado(nombre,paterno,materno,num,correo,turno,tipo){
         });
 }
 
+function guardareestacion(nombre,linea){
+        var parametros = {
+          "nombre" : nombre,
+          "linea" : linea
+        };
+        $.ajax({
+          data : parametros,
+          url : 'guardares.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#guardae").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#guardae").html(response);
+          },
+          error: function (response){
+              $("#guardae").html("No se cargaron los datos");
+          }
+        });
+}
+
 function guardaasignacion(idestacion,idpersonal,prioridad){
         var parametros = {
           "idestacion" : idestacion,
