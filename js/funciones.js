@@ -333,6 +333,28 @@ function actualizarempleado(id,nombre,paterno,materno,num,correo,turno,tipo){
           }
         });
 }
+function actualizarasignacion(idestacion,idpersonal,idespersonal){
+        var parametros = {
+          "idestacion" : idestacion,
+          "idpersonal" : idpersonal,
+          "idespersonal": idespersonal
+        };
+        $.ajax({
+          data : parametros,
+          url : 'actualizarasignacion.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado"+idpersonal).html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado"+idpersonal).html(response);
+          },
+          error: function (response){
+              $("#actualizado"+idpersonal).html("No se cargaron los datos");
+          }
+        });
+}
 
 function actualizarestacion(id,nombre,linea){
         var parametros = {
@@ -450,6 +472,29 @@ function guardarempleado(nombre,paterno,materno,num,correo,turno,tipo){
           },
           error: function (response){
               $("#guardado").html("No se cargaron los datos");
+          }
+        });
+}
+
+function guardaasignacion(idestacion,idpersonal,prioridad){
+        var parametros = {
+          "idestacion" : idestacion,
+          "idpersonal" : idpersonal,
+          "prioridad"  : prioridad
+        };
+        $.ajax({
+          data : parametros,
+          url : 'guardaasignacion.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#actualizado"+idpersonal).html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#actualizado"+idpersonal).html(response);
+          },
+          error: function (response){
+              $("#actualizado"+idpersonal).html("No se cargaron los datos");
           }
         });
 }

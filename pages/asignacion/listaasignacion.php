@@ -8,6 +8,7 @@
                                         <th>Estacion 1</th>
                                         <th>Estacion 2</th>
                                         <th>Estacion 3</th>
+                                        <th>Mensajes</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -25,19 +26,24 @@
                  "<td>".$reg['nombre_personal'].
                  "<td>".$reg['apaterno_personal'].
                  "<td>".$reg['amaterno_personal'];
+
               $sql="select * from estacion_personal where id_personal='$reg[id_personal]'" ;
               $asignacion=mysqli_query($con,$sql);
               if(mysqli_num_rows($asignacion)>0){
                 $num=0;
                 while($asig=mysqli_fetch_assoc($asignacion)){
                   $num++;
-                  echo "<td>".$asig['id_estacion'];
+                  echo "<td><input hidden type='text' id='espersonal".$asig['id_espersonal']."' value='".$asig['id_espersonal']."'>
+                  ";
                   $sql="select * from estacion";
                   $result=mysqli_query($con,$sql);
                   if(mysqli_num_rows($result)>0){
-                    echo "<select id='prioridad".$num.$reg['id_personal']."'>";
+                    ?>
+                    <select onchange="actualizarasignacion($('#prioridad<?php echo $num.$reg['id_personal'];?>').val(),<?php echo $reg['id_personal'];?>,<?php echo $asig['id_espersonal'];?>)" id="prioridad<?php echo $num.$reg['id_personal'];?>">
+                    <option value=''></option>
+                    <?php
                     while($reg1 = mysqli_fetch_assoc($result)){
-                      echo "<option>".$reg1['nombre_es']."</option>";
+                      echo "<option value='$reg1[id_estacion]'>".$reg1['nombre_es']."</option>";
                     }
                     echo "</select>";
                   }
@@ -48,9 +54,12 @@
                   $sql="select * from estacion";
                   $result=mysqli_query($con,$sql);
                   if(mysqli_num_rows($result)>0){
-                    echo "<select id='prioridad".$j.$reg['id_personal']."'>";
+                    ?>
+                    <select onchange="guardaasignacion($('#prioridad<?php echo $j.$reg['id_personal'];?>').val(),<?php echo $reg['id_personal'];?>,<?php echo $j;?>)" id="prioridad<?php echo $j.$reg['id_personal'];?>">
+                    <option value=''></option>
+                    <?php
                     while($reg1 = mysqli_fetch_assoc($result)){
-                      echo "<option>".$reg1['nombre_es']."</option>";
+                      echo "<option value='$reg1[id_estacion]'>".$reg1['nombre_es']."</option>";
                     }
                     echo "</select>";
                   }
@@ -58,19 +67,23 @@
 
               }else{
                 for ($j=1; $j <4 ; $j++) { 
-                echo "<td>".$asig['id_estacion'];
+                echo "<td>";
                   $sql="select * from estacion";
                   $result=mysqli_query($con,$sql);
                   if(mysqli_num_rows($result)>0){
-                    echo "<select id='prioridad".$j.$reg['id_personal']."'>>";
+                    ?>
+                    <select onchange="guardaasignacion($('#prioridad<?php echo $j.$reg['id_personal'];?>').val(),<?php echo $reg['id_personal'];?>,<?php echo $j;?>)" id="prioridad<?php echo $j.$reg['id_personal'];?>">
+                    <option value=''></option>
+                    <?php
                     while($reg1 = mysqli_fetch_assoc($result)){
-                      echo "<option>".$reg1['nombre_es']."</option>";
+                      echo "<option value='$reg1[id_estacion]'>".$reg1['nombre_es']."</option>";
                     }
                     echo "</select>";
                   }
                 }
 
-              }            
+              }
+              echo "<td><span id='actualizado".$reg['id_personal']."'></span>";            
                  ?>
 
        <tr>
