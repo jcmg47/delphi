@@ -83,36 +83,36 @@ function listaempleado(){
         });
  }
 
-function opcionlinea(){
+function opcionlinea(tag){
         $.ajax({
           url : 'opcionlinea.php',
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#lineas").html("<img src = '../../img/loader.gif'>");
+             $("#"+tag).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#lineas").html(response);
+            $("#"+tag).html(response);
           },
           error: function (response){            
-              $("#lineas").html("Intentelo nuevamente");
+              $("#"+tag).html("Intentelo nuevamente");
           }
         });
  }
 
-function opcionestacion(){
+function opcionestacion(tag){
         $.ajax({
           url : 'opcionestacion.php',
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#estaciones").html("<img src = '../../img/loader.gif'>");
+             $("#"+tag).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#estaciones").html(response);
+            $("#"+tag).html(response);
           },
           error: function (response){            
-              $("#estaciones").html("Intentelo nuevamente");
+              $("#"+tag).html("Intentelo nuevamente");
           }
         });
  }
@@ -159,19 +159,19 @@ function opcionestacion(){
         });
  }
 
-  function opcionpersonal(){
+  function opcionpersonal(tag){
         $.ajax({
           url : 'opcionpersonal.php',
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#tipos").html("<img src = '../../img/loader.gif'>");
+             $("#"+tag).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#tipos").html(response);
+            $("#"+tag).html(response);
           },
           error: function (response){            
-              $("#tipos").html("Intentelo nuevamente");
+              $("#"+tag).html("Intentelo nuevamente");
           }
         });
  }

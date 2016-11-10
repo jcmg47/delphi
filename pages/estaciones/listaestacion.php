@@ -36,24 +36,27 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Estación&nbsp;</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="actualizado">
             <form role="form" action="actualizarestacion.php" method="POST">
-                <input type="text" value="<?php echo $reg['id_estacion'] ?>" id="id" name="id" hidden>
+                <input type="text" value="<?php echo $reg['id_estacion'] ?>" id="id" name="id<?php echo $reg['id_estacion'];?>" hidden>
 
                  <div class="form-group">
                     <label>Nombre de Estación:&nbsp;</label>
-                    <input class="form-control" name="nombre" id="nombre"> value="<?php echo $reg['nombre_es'] ?>">
+                    <input class="form-control" name="nombre<?php echo $reg['nombre_es'];?>" id="nombre" value="<?php echo $reg['nombre_es'] ?>">
                    
                 </div>
                 <div class="form-group">
                     
-                    <div id="lineas"></div>
-                   
+                    <div id="lineas<?php echo $reg['id_estacion']; ?>"></div>
                 </div>
            <button class="btn btn-primary" type="submit" onclick="actualizarestacion($('#id').val(),$('#nombre').val(),$('#linea').val()); return false;">Guardar</button>
         </form> 
         </div>
         <div class="modal-footer">
+           <script>
+                    opcionlinea('lineas<?php echo $reg['id_estacion']; ?>');
+
+                </script>
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
            
         </div>
@@ -77,3 +80,4 @@
         });
     });
     </script>
+
