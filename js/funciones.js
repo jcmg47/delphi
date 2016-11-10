@@ -83,8 +83,12 @@ function listaempleado(){
         });
  }
 
-function opcionlinea(tag){
+function opcionlinea(tag,id){
+ var parametros = {
+          "id" : id
+        };
         $.ajax({
+          data : parametros,
           url : 'opcionlinea.php',
           type: 'post', 
           cache: false,
