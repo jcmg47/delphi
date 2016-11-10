@@ -5,8 +5,13 @@ require_once("../bd/conect.php");
  			if(mysqli_num_rows($resultado)>0){
  				echo '
  				<div class="form-group">
-                                            <label>Turno&nbsp;</label>
-                                            <select class="form-control" id="turno" name="turno">';
+                                            <label>Turno&nbsp;</label>';
+                                            if(isset($_POST['id'])){
+                                            	echo '<select class="form-control" id="turno'.$_POST['id'].'"  name="turno">';
+                                            }else{
+												echo '<select class="form-control" id="turno"  name="turno">';
+
+                                            }
                                             while($reg = mysqli_fetch_assoc($resultado)){ ?>
                                                 <option value="<?php echo $reg['id_turno'];?>">
 					                            <?php 

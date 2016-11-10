@@ -117,8 +117,12 @@ function opcionestacion(){
         });
  }
 
- function opcionturno(tag){
+ function opcionturno(tag,id){
+   var parametros = {
+          "id" : id
+        };
         $.ajax({
+          data : parametros,
           url : 'opcionturno.php',
           type: 'post', 
           cache: false,
@@ -134,8 +138,12 @@ function opcionestacion(){
         });
  }
 
- function opciontipo(tag){
+ function opciontipo(tag,id){
+        var parametros = {
+          "id" : id
+        };
         $.ajax({
+          data : parametros,
           url : 'opciontipo.php',
           type: 'post', 
           cache: false,
@@ -290,13 +298,13 @@ function actualizarempleado(id,nombre,paterno,materno,num,correo,turno,tipo){
           type: 'post', 
           cache: false,
           beforeSend: function(){
-             $("#actualizado").html("<img src = '../../img/loader.gif'>");
+             $("#actualizado"+id).html("<img src = '../../img/loader.gif'>");
           },
           success : function(response){
-            $("#actualizado").html(response);
+            $("#actualizado"+id).html(response);
           },
           error: function (response){
-              $("#actualizado").html("No se cargaron los datos");
+              $("#actualizado"+id).html("No se cargaron los datos");
           }
         });
 }
@@ -390,6 +398,33 @@ function actualizarsub(id,nombre, estacion){
           },
           error: function (response){
               $("#actualizado").html("No se cargaron los datos");
+          }
+        });
+}
+
+function guardarempleado(nombre,paterno,materno,num,correo,turno,tipo){
+        var parametros = {
+          "tipo" : tipo,
+          "turno" : turno,
+          "nombre" : nombre,
+          "paterno" : paterno,
+          "materno" : materno,
+          "num" : num,
+          "correo" : correo
+        };
+        $.ajax({
+          data : parametros,
+          url : 'guardaremp.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#guardado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#guardado").html(response);
+          },
+          error: function (response){
+              $("#guardado").html("No se cargaron los datos");
           }
         });
 }

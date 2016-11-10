@@ -44,9 +44,9 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Empleado&nbsp;</h4>
         </div>
-        <div class="modal-body" id="actualizado">
+        <div class="modal-body" id="actualizado<?php echo $reg['id_personal']; ?>">
             <form role="form">
-                  <input type="text" value="<?php echo $reg['id_personal'] ?>" id="id" name="id<?php echo $reg['id_personal'];?>" hidden>
+                  <input type="text" value="<?php echo $reg['id_personal']; ?>" id="id<?php echo $reg['id_personal'];?>" name="id" hidden>
 
                  <div class="form-group">
                     <label>Nombre(s):&nbsp;</label>
@@ -76,18 +76,17 @@
                  <?php //include('opcionturno.php'); ?>
                
                 <div class="form-group">
-                  <div id="tipos<?php echo $reg['id_personal']; ?>"></div>
+                  <div id="uptipo<?php echo $reg['id_personal']; ?>"></div>
                 </div>
                 
                 <div class="form-group">
-                  <div id="turnos<?php echo $reg['id_personal']; ?>"></div>
+                  <div id="upturno<?php echo $reg['id_personal']; ?>"></div>
                 </div>
                 <script>
-                    opcionturno('turnos<?php echo $reg['id_personal']; ?>');
-                    opciontipo('tipos<?php echo $reg['id_personal']; ?>');
-
+                    opcionturno('upturno<?php echo $reg['id_personal'];?>',<?php echo $reg['id_personal'];?>);
+                    opciontipo('uptipo<?php echo $reg['id_personal'];?>',<?php echo $reg['id_personal'];?>);
                 </script>
-           <button class="btn btn-primary" type="submit" onclick="actualizarempleado($('#id<?php echo $reg[id_personal];?>').val(),$('#nombre<?php echo $reg[id_personal];?>').val(), $('#paterno<?php echo $reg[id_personal];?>').val(), $('#materno<?php echo $reg[id_personal];?>').val(), $('#num<?php echo $reg[id_personal];?>').val(), $('#correo<?php echo $reg[id_personal];?>').val(), $('#turno<?php echo $reg[id_personal];?>').val(), $('#tipo<?php echo $reg[id_personal];?>').val()); return false;">Guardar</button>
+           <button class="btn btn-primary" onclick="actualizarempleado($('#id<?php echo $reg['id_personal'];?>').val(),$('#nombre<?php echo $reg['id_personal'];?>').val(), $('#paterno<?php echo $reg['id_personal'];?>').val(), $('#materno<?php echo $reg['id_personal'];?>').val(), $('#num<?php echo $reg['id_personal'];?>').val(), $('#correo<?php echo $reg['id_personal'];?>').val(), $('#turno<?php echo $reg['id_personal'];?>').val(), $('#tipo<?php echo $reg['id_personal'];?>').val()); return false;">Guardar</button>
         </form> 
 
         </div>
