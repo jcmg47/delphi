@@ -476,7 +476,7 @@ function guardarempleado(nombre,paterno,materno,num,correo,turno,tipo){
         });
 }
 
-function guardareestacion(nombre,linea){
+function guardarestacion(nombre,linea){
         var parametros = {
           "nombre" : nombre,
           "linea" : linea
