@@ -40,17 +40,17 @@
         <div class="modal-body" id="actualizado<?php echo $reg['id_linea'];?>">
            
             <form role="form" action="actualizarlinea.php" method="POST">
-             <input type="text" value="<?php echo $reg['id_linea'] ?>" id="id<?php echo $reg['id_linea'] ?>" name="id" hidden>
+             <input type="text" value="<?php echo $reg['id_linea'] ?>" id="id<?php echo $reg['id_linea'] ?>" name="id<?php echo $reg['id_linea'] ?>" hidden>
                  <div class="form-group">
                     <label>Nombre:&nbsp;</label>
-                    <input class="form-control" name="nombre" id="nombre<?php echo $reg['id_linea'] ?>" required value="<?php echo $reg['nombre_linea'] ?>">
+                    <input class="form-control" name="nombre<?php echo $reg['nombre_linea'] ?>" id="nombre<?php echo $reg['id_linea'] ?>" required value="<?php echo $reg['nombre_linea'] ?>">
                    
                 </div>
                 <div class="form-group">
                     <label>Descripción:&nbsp;</label>
                     <input class="form-control" name="desc" id="descripcion<?php echo $reg['id_linea'] ?>" required value="<?php echo $reg['desc_linea'] ?>">
                 </div>
-            <button class="btn btn-primary" type="submit" onclick="actualizarlinea($('#id<?php echo $reg['id_linea'] ?>').val(),$('#nombre<?php echo $reg['id_linea'] ?>').val(),$('#descripcion<?php echo $reg['id_linea'] ?>').val()); return false;">Guardar</button>
+            <button class="btn btn-primary"  onclick="actualizarlinea($('#id<?php echo $reg['id_linea'] ?>').val(),$('#nombre<?php echo $reg['id_linea'] ?>').val(),$('#descripcion<?php echo $reg['id_linea'] ?>').val()); return false;">Guardar</button>
         </form>    
 
         </div>
@@ -62,9 +62,7 @@
         </div>
         </div>
     </div>
-
-
-               <?php }
+     <?php }
               }
             
             mysqli_close($con);
