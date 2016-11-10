@@ -1,3 +1,59 @@
+function validar(user,pass){
+ var parametros = {
+          "user" : user,
+          "pass" : pass
+        };
+        $.ajax({
+          data : parametros,
+          url : 'validar.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#error").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#error").html(response);
+          },
+          error: function (response){            
+              $("#error").html("Intentelo nuevamente");
+          }
+        });
+ }
+ function validado(){
+
+        $.ajax({
+          url : '../login/validado.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#validado").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#validado").html(response);
+          },
+          error: function (response){            
+              $("#validado").html("Intentelo nuevamente");
+          }
+        });
+ }
+ 
+ function salir(){
+        $.ajax({
+          url : 'logout.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#error").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#error").html(response);
+          },
+          error: function (response){            
+              $("#error").html("Intentelo nuevamente");
+          }
+        });
+ }
+
 function listalinea(){
         $.ajax({
           url : 'listalinea.php',
