@@ -344,7 +344,7 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Registrar Incidencia&nbsp;</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="guardai">
             <form role="form" action="guardarin.php" method="POST">
                  <div class="form-group">
                     <label>Fecha:&nbsp;</label>
@@ -355,25 +355,25 @@
                                             <label>Disponibilidad</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="disp" id="optionsRadios1" value="1" checked>Si
+                                                    <input type="radio" name="disp" id="disp" value="1" checked>Si
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="disp" id="optionsRadios2" value="0">No
+                                                    <input type="radio" name="disp" id="disp" value="0">No
                                                 </label>
                                             </div>
                                             
                                         </div>
 
                 <div class="form-group">
-                  <div id="tipos"></div>
+                  <div id="personales"></div>
                 </div>
            
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-        <button class="btn btn-primary" type="submit">Guardar</button>
+       <button class="btn btn-primary" onclick="guardarincidencia($('#fecha').val(),$('#disp').val(),$('#personal').val()); return false;">Guardar</button>
         </form>    
         </div>
 
@@ -399,7 +399,7 @@
     <script src="../../js/funciones.js"></script>
 
     <script>
-        $(document).ready(listaincidencia(),opcionpersonal());
+        $(document).ready(listaincidencia(),opcionpersonal('personales'));
         $("#nuevo").on('hidden.bs.modal', function () {
             location.reload();
     });

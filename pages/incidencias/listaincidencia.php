@@ -5,6 +5,7 @@
                                         <th>Disponibilidad </th>
                                         <th>Fecha</th>
                                         <th>Empleado</th>
+                                        <th>Operador de Apoyo</th>
                                         <th>Acciones</th>
                                         
                                     </tr>
@@ -29,6 +30,7 @@
                 }
                 echo "<td>".$reg['fecha'].
                 "<td>".$reg['nombre_personal']." ".$reg['apaterno_personal']." ".$reg['amaterno_personal'].
+                
                 "<td align='center'><button class='btn btn-danger btn-xs glyphicon glyphicon-trash' onclick='borrarincidencia($reg[id_incidencia]);' > </button>
 
                  <button class='btn btn-primary btn-xs glyphicon glyphicon-pencil' data-toggle='modal' data-target='#actualizar".$reg['id_incidencia']."'></button>

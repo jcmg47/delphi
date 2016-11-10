@@ -476,7 +476,7 @@ function guardarempleado(nombre,paterno,materno,num,correo,turno,tipo){
         });
 }
 
-function guardareestacion(nombre,linea){
+function guardarestacion(nombre,linea){
         var parametros = {
           "nombre" : nombre,
           "linea" : linea
@@ -494,6 +494,29 @@ function guardareestacion(nombre,linea){
           },
           error: function (response){
               $("#guardae").html("No se cargaron los datos");
+          }
+        });
+}
+
+function guardarincidencia(fecha,disp,personal){
+        var parametros = {
+          "fecha" : fecha,
+          "disp" : disp,
+          "personal" : personal
+        };
+        $.ajax({
+          data : parametros,
+          url : 'guardares.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#guardai").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#guardai").html(response);
+          },
+          error: function (response){
+              $("#guardai").html("No se cargaron los datos");
           }
         });
 }
