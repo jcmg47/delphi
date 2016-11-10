@@ -498,6 +498,50 @@ function guardarestacion(nombre,linea){
         });
 }
 
+function guardarsubestacion(nombre,estacion){
+        var parametros = {
+          "nombre" : nombre,
+          "estacion" : estacion
+        };
+        $.ajax({
+          data : parametros,
+          url : 'guardarsub.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#guardase").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#guardase").html(response);
+          },
+          error: function (response){
+              $("#guardase").html("No se cargaron los datos");
+          }
+        });
+}
+
+function guardarlinea(nombre,desc){
+        var parametros = {
+          "nombre" : nombre,
+          "desc" : desc
+        };
+        $.ajax({
+          data : parametros,
+          url : 'guardar.php',
+          type: 'post', 
+          cache: false,
+          beforeSend: function(){
+             $("#guardali").html("<img src = '../../img/loader.gif'>");
+          },
+          success : function(response){
+            $("#guardali").html(response);
+          },
+          error: function (response){
+              $("#guardali").html("No se cargaron los datos");
+          }
+        });
+}
+
 function guardarincidencia(fecha,disp,personal){
         var parametros = {
           "fecha" : fecha,
@@ -506,7 +550,7 @@ function guardarincidencia(fecha,disp,personal){
         };
         $.ajax({
           data : parametros,
-          url : 'guardares.php',
+          url : 'guardarin.php',
           type: 'post', 
           cache: false,
           beforeSend: function(){
