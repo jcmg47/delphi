@@ -25,37 +25,52 @@
                  "<td>".$reg['nombre_personal'].
                  "<td>".$reg['apaterno_personal'].
                  "<td>".$reg['amaterno_personal'];
-               
-              $sql="select * from estacion";
-              $result=mysqli_query($con,$sql);
-              if(mysqli_num_rows($result)>0){
-                echo "<td><select>";
-                 while($reg1 = mysqli_fetch_assoc($result)){
-                  echo "<option>".$reg1['nombre_es']."</option>";
+              $sql="select * from estacion_personal where id_personal='$reg[id_personal]'" ;
+              $asignacion=mysqli_query($con,$sql);
+              if(mysqli_num_rows($asignacion)>0){
+                $num=0;
+                while($asig=mysqli_fetch_assoc($asignacion)){
+                  $num++;
+                  echo "<td>".$asig['id_estacion'];
+                  $sql="select * from estacion";
+                  $result=mysqli_query($con,$sql);
+                  if(mysqli_num_rows($result)>0){
+                    echo "<select id='prioridad".$num.$reg['id_personal']."'>";
+                    while($reg1 = mysqli_fetch_assoc($result)){
+                      echo "<option>".$reg1['nombre_es']."</option>";
+                    }
+                    echo "</select>";
                   }
-                echo "</select>";
+
                 }
-                $sql="select * from estacion";
-              $result=mysqli_query($con,$sql);
-              if(mysqli_num_rows($result)>0){
-                echo "<td><select>";
-                 while($reg1 = mysqli_fetch_assoc($result)){
-                  echo "<option>".$reg1['nombre_es']."</option>";
+                for ($j=$num+1; $j <4 ; $j++) { 
+                echo "<td>".$asig['id_estacion'];
+                  $sql="select * from estacion";
+                  $result=mysqli_query($con,$sql);
+                  if(mysqli_num_rows($result)>0){
+                    echo "<select id='prioridad".$j.$reg['id_personal']."'>";
+                    while($reg1 = mysqli_fetch_assoc($result)){
+                      echo "<option>".$reg1['nombre_es']."</option>";
+                    }
+                    echo "</select>";
                   }
-                echo "</select>";
-                }
-                $sql="select * from estacion";
-              $result=mysqli_query($con,$sql);
-              if(mysqli_num_rows($result)>0){
-                echo "<td><select>";
-                 while($reg1 = mysqli_fetch_assoc($result)){
-                  echo "<option>".$reg1['nombre_es']."</option>";
-                  }
-                echo "</select>";
                 }
 
+              }else{
+                for ($j=1; $j <4 ; $j++) { 
+                echo "<td>".$asig['id_estacion'];
+                  $sql="select * from estacion";
+                  $result=mysqli_query($con,$sql);
+                  if(mysqli_num_rows($result)>0){
+                    echo "<select id='prioridad".$j.$reg['id_personal']."'>>";
+                    while($reg1 = mysqli_fetch_assoc($result)){
+                      echo "<option>".$reg1['nombre_es']."</option>";
+                    }
+                    echo "</select>";
+                  }
+                }
 
-                
+              }            
                  ?>
 
        <tr>
