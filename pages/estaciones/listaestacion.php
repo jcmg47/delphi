@@ -36,7 +36,7 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Estación&nbsp;</h4>
         </div>
-        <div class="modal-body" id="actualizado">
+        <div class="modal-body" id="actualizado<?php echo $reg['id_estacion'];?>">
             <form role="form" action="actualizarestacion.php" method="POST">
                 <input type="text" value="<?php echo $reg['id_estacion'] ?>" id="id<?php echo $reg['id_estacion'];?>" name="id<?php echo $reg['id_estacion'];?>" hidden>
 
