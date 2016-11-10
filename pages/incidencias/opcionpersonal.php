@@ -7,7 +7,7 @@ require_once("../bd/conect.php");
  				<div class="form-group">
                                             <label>Nombre de Empleado&nbsp;</label>';
                                             if (isset($_POST['id'])) {
-                                             echo '<select class="form-control" id="personal'.$_POST['id'].'"  name="linea">';
+                                             echo '<select class="form-control" id="personal'.$_POST['id'].'"  name="personal">';
                                             }else{
                                             	echo '<select class="form-control" id="personal"  name="personal">';
                                             }

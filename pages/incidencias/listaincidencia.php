@@ -12,7 +12,7 @@
                                 <tbody>
   <?php
        require_once("../bd/conect.php");
-        $sql= "SELECT p.nombre_personal, p.apaterno_personal, p.amaterno_personal,p.id_personal, i.id_incidencia,i.disponibilidad,i.fecha FROM incidencia AS i INNER JOIN personal AS p ON i.id_personal = p.id_personal ";
+        $sql= "SELECT p.nombre_personal, p.apaterno_personal, p.amaterno_personal,p.id_personal, i.id_incidencia,i.disponibilidad,i.fecha,ep.id_personal,ep.id_espersonal, ep.id_estacion FROM incidencia AS i INNER JOIN personal AS p ON i.id_personal = p.id_personal INNER JOIN estacion_personal as ep ON p.id_personal = ep.id_personal";
         $resultado=mysqli_query($con,$sql);
         if(mysqli_num_rows($resultado)>0){
           $i=1;
@@ -29,7 +29,7 @@
                 }
                 echo "<td>".$reg['fecha'].
                 "<td>".$reg['nombre_personal']." ".$reg['apaterno_personal']." ".$reg['amaterno_personal'].
-                
+                "<td>".$reg['id_estacion'].
                 "<td align='center'><button class='btn btn-danger btn-xs glyphicon glyphicon-trash' onclick='borrarincidencia($reg[id_incidencia]);' > </button>
 
                  <button class='btn btn-primary btn-xs glyphicon glyphicon-pencil' data-toggle='modal' data-target='#actualizar".$reg['id_incidencia']."'></button>
