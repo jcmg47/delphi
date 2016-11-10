@@ -388,6 +388,9 @@
 
     <script>
         $(document).ready(opcionestacion('estaciones'),listasubestacion());
+        $("#nuevo").on('hidden.bs.modal', function () {
+            location.reload();
+    });
     </script>
 
 </body>

@@ -400,6 +400,9 @@
 
     <script>
         $(document).ready(listaincidencia(),opcionpersonal());
+        $("#nuevo").on('hidden.bs.modal', function () {
+            location.reload();
+    });
     </script>
 
 </body>

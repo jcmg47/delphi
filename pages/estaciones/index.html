@@ -387,6 +387,9 @@
 
     <script>
         $(document).ready(opcionlinea('lineas'),listaestacion());
+        $("#nuevo").on('hidden.bs.modal', function () {
+            location.reload();
+    });
     </script>
 
 </body>
