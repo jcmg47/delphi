@@ -2,8 +2,8 @@
 require_once("../bd/conect.php");
 if($_POST["idestacion"]!=""){
 	
-    $sql="UPDATE estacion_personal SET id_estacion ='$_POST[idestacion]', id_personal = '$_POST[idpersonal]' WHERE id_espersonal ='$_POST[idespersonal]'";
-    
+    $sql="UPDATE estacion_personal SET id_estacion ='$_POST[idestacion]' WHERE id_espersonal ='$_POST[idespersonal]'";
+    //echo $sql;
     if(mysqli_query($con,$sql)){
     	echo "Registro Actualizado!";
     	//header("location:index.html");

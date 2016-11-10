@@ -5,6 +5,7 @@
                                         <th>Disponibilidad</th>
                                         <th>Fecha</th>
                                         <th>Empleado</th>
+                                        <th>Personal alterno</th>
                                         <th>Acciones</th>
                                         
                                     </tr>
@@ -12,7 +13,8 @@
                                 <tbody>
   <?php
        require_once("../bd/conect.php");
-        $sql= "SELECT p.nombre_personal, p.apaterno_personal, p.amaterno_personal,p.id_personal, i.id_incidencia,i.disponibilidad,i.fecha FROM incidencia AS i INNER JOIN personal AS p ON i.id_personal = p.id_personal ";
+        //$sql= "SELECT p.nombre_personal, p.apaterno_personal, p.amaterno_personal,p.id_personal, i.id_incidencia,i.disponibilidad,i.fecha FROM incidencia AS i INNER JOIN personal AS p ON i.id_personal = p.id_personal ";
+        $sql="SELECT incidencia.id_personal,incidencia.disponibilidad,incidencia.fecha,incidencia.id_incidencia, personal.nombre_personal, personal.apaterno_personal, personal.amaterno_personal FROM incidencia INNER JOIN personal where personal.id_personal= incidencia.id_personal";
         $resultado=mysqli_query($con,$sql);
         if(mysqli_num_rows($resultado)>0){
           $i=1;
@@ -28,9 +30,31 @@
                   echo "No";
                 }
                 echo "<td>".$reg['fecha'].
-                "<td>".$reg['nombre_personal']." ".$reg['apaterno_personal']." ".$reg['amaterno_personal'].
+                "<td>".$reg['nombre_personal']." ".$reg['apaterno_personal']." ".$reg['amaterno_personal'];
                 
-                "<td align='center'><button class='btn btn-danger btn-xs glyphicon glyphicon-trash' onclick='borrarincidencia($reg[id_incidencia]);' > </button>
+
+                $sql="Select * from estacion_personal where id_personal='$reg[id_personal]'";
+                echo "<td>";
+                $asignacion=mysqli_query($con,$sql);
+                if(mysqli_num_rows($asignacion)>0){
+                    $asig=mysqli_fetch_assoc($asignacion);
+                    $sql="select * from personal INNER JOIN estacion_personal on personal.id_personal=estacion_personal.id_personal where id_estacion='1' and prioridad='1' and estacion_personal.id_personal!='$reg[id_personal]'";
+                   // echo $sql;
+                    $alterno=mysqli_query($con,$sql);
+                     if(mysqli_num_rows($alterno)>0){
+                        echo "<select>
+                                <option></option>";
+                        while ($alt=mysqli_fetch_assoc($alterno)) {
+                            echo "<option>".$alt['nombre_personal']." ".$alt['apaterno_personal']." ".$alt['amaterno_personal']."</option>";
+                        }
+                        echo "</select>";
+
+                     }else{
+                        echo "No hay personal capacitado";
+                     }
+                    
+                }
+                echo "<td align='center'><button class='btn btn-danger btn-xs glyphicon glyphicon-trash' onclick='borrarincidencia($reg[id_incidencia]);' > </button>
 
                  <button class='btn btn-primary btn-xs glyphicon glyphicon-pencil' data-toggle='modal' data-target='#actualizar".$reg['id_incidencia']."'></button>
                 </tr>";?>

@@ -241,7 +241,11 @@ function opcionestacion(tag,id){
  }
 
   function opcionpersonal(tag,id){
+     var parametros = {
+          "id" : id
+        };
         $.ajax({
+           data : parametros,
           url : 'opcionpersonal.php',
           type: 'post', 
           cache: false,
