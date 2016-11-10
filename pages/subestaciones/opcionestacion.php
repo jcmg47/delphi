@@ -5,8 +5,12 @@ require_once("../bd/conect.php");
  			if(mysqli_num_rows($resultado)>0){
  				echo '
  				<div class="form-group">
-                                            <label>Nombre de Estación&nbsp;</label>
-                                            <select class="form-control" name="estacion">';
+                                            <label>Nombre de Estación&nbsp;</label>';
+                                             if (isset($_POST['id'])) {
+                                             echo '<select class="form-control" id="estacion'.$_POST['id'].'"  name="estacion">';
+                                            }else{
+                                            	echo '<select class="form-control" id="estacion"  name="estacion">';
+                                            }
                                             while($reg = mysqli_fetch_assoc($resultado)){ ?>
                                                 <option value="<?php echo $reg['id_estacion'];?>">
 					                            <?php 

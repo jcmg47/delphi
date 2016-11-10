@@ -121,7 +121,7 @@ function opcionlinea(tag,id){
         });
  }
 
-function opcionestacion(tag){
+function opcionestacion(tag,id){
         $.ajax({
           url : 'opcionestacion.php',
           type: 'post', 
@@ -180,7 +180,7 @@ function opcionestacion(tag){
         });
  }
 
-  function opcionpersonal(tag){
+  function opcionpersonal(tag,id){
         $.ajax({
           url : 'opcionpersonal.php',
           type: 'post', 

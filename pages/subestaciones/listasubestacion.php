@@ -36,24 +36,30 @@
         <button type="button" class="close" data-dismiss ="modal">&times;</button>
             <h4 class="modal-tittle">Actualizar Sub-Estación&nbsp;</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="actualizado">
             <form role="form" action="actualizarsub.php" method="POST">
-                <input type="text" value="<?php echo $reg['id_subestacion'] ?>" name="id" hidden>
+                <input type="text" value="<?php echo $reg['id_subestacion'] ?>" id="id<?php echo $reg['id_subestacion'];?>" name="id<?php echo $reg['id_subestacion'];?>" hidden>
+
                  <div class="form-group">
                     <label>Nombre de Sub-Estación:&nbsp;</label>
-                    <input class="form-control" name="nombre" required value="<?php echo $reg['nombre_es'] ?>">
-                   
+                    <input class="form-control" name="nombre<?php echo $reg['nombre_sub'] ?>" id="nombre<?php echo $reg['id_subestacion'];?>" value="<?php echo $reg['nombre_sub'] ?>">
                 </div>
-                <div class="form-group">
-                     <div id="estaciones"></div>
-                   
+                
+                 <div class="form-group">
+                    <div id="upestacion<?php echo $reg['id_subestacion']; ?>"></div>
                 </div>
-           
+
+            <button class="btn btn-primary" onclick="actualizarsub($('#id<?php echo $reg['id_subestacion'];?>').val(),$('#nombre<?php echo $reg['id_subestacion'];?>').val(),$('#estacion<?php echo $reg['id_subestacion'];?>').val()); return false;">Guardar</button>
+        </form> 
+
         </div>
         <div class="modal-footer">
+        <script>
+                    opcionestacion('upestacion<?php echo $reg['id_subestacion']; ?>', <?php echo $reg['id_subestacion']; ?>);
+                </script>
+
         <button type="button" class="btn btn-default" data-dismiss='modal'>Cerrar</button>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        </form>    
+          
         </div>
 
         </div>
